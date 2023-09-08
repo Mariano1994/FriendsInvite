@@ -1,3 +1,5 @@
+import { AddButton } from "./AddButton";
+
 export function Friend({ friend }) {
   return (
     <>
@@ -26,7 +28,7 @@ export function Friend({ friend }) {
           </p>
         )}
 
-        <button className="button"> Select</button>
+      <AddButton> Select </AddButton>
       </li>
     </>
   );
