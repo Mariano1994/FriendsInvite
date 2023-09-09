@@ -1,9 +1,9 @@
 
-export function AddButton({children}) {
+export function AddButton({children, onClick}) {
 
   return(
     <>
-       <button className="button"> {children}</button>
+       <button className="button" onClick={onClick}> {children}</button>
     </>
   )
 }

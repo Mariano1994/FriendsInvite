@@ -15,7 +15,7 @@ export function FormSplitBill() {
         <label >👬 X's expenses</label>
         <input type="text" disabled/>
 
-        <label> Who is paying the bill</label>
+        <label>Who is payong the bill</label>
         <select >
           <option value="user">You</option>
           <option value="friend">X</option>
