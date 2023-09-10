@@ -1,18 +1,22 @@
-import { Friend } from "./Friend"
+import { Friend } from "./Friend";
 
-export function FriendsList({friendsData}) {  
+export function FriendsList({ friendsData, onClick, onSelection, selectedFriend }) { 
+  
   return (
     <>
       <ul>
-        {
-          friendsData.map(friend => {
+        {friendsData.map((friend) => {
           return (
-           <Friend friend={friend} key ={friend.id}/>
-          )
-        })     
-        }
+            <Friend
+              friend={friend}
+              key={friend.id}
+              onClick={onClick}
+              onSelection={onSelection}
+              selectedFriend= {selectedFriend}
+            />
+          );
+        })}
       </ul>
     </>
-  )
-
+  );
 }
