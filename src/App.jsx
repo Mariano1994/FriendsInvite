@@ -37,13 +37,24 @@ function App() {
 
   function handleOpenFriendForm() {
     setIsOpen((isOpen) => !isOpen);
-    setSelectedFriend(null)
+    setSelectedFriend(null);
   }
 
   function handleSelectFriend(friend) {
+    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+    setIsOpen(false);
+  }
 
-    setSelectedFriend((cur) => cur?.id === friend.id ? null : friend);
-    setIsOpen(false)
+  function handleSplitBill(value) {
+    setFriends((friends) => {
+      return friends.map((friend) => {
+        return friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend;
+      });
+    });
+
+    setSelectedFriend(null)
   }
 
   return (
@@ -62,7 +73,12 @@ function App() {
           </AddButton>
         </div>
 
-        {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+            onSplitValue={handleSplitBill}
+          />
+        )}
       </div>
     </>
   );
